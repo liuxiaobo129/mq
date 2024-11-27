@@ -527,11 +527,11 @@ public abstract class NettyRemotingAbstract {
         if (acquired) {
             final SemaphoreReleaseOnlyOnce once = new SemaphoreReleaseOnlyOnce(this.semaphoreAsync);
             long costTime = System.currentTimeMillis() - beginStartTime;
-            if (timeoutMillis < costTime) {
-                once.release();
-                future.completeExceptionally(new RemotingTimeoutException("invokeAsyncImpl call timeout"));
-                return future;
-            }
+//            if (timeoutMillis < costTime) {
+//                once.release();
+//                future.completeExceptionally(new RemotingTimeoutException("invokeAsyncImpl call timeout"));
+//                return future;
+//            }
 
             AtomicReference<ResponseFuture> responseFutureReference = new AtomicReference<>();
             final ResponseFuture responseFuture = new ResponseFuture(channel, opaque, request, timeoutMillis - costTime,

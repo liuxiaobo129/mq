@@ -349,6 +349,7 @@ public class SendMessageProcessor extends AbstractSendMessageProcessor implement
         } else {
             PutMessageResult putMessageResult = null;
             if (sendTransactionPrepareMessage) {
+                // 事务消息
                 putMessageResult = this.brokerController.getTransactionalMessageService().prepareMessage(msgInner);
             } else {
                 putMessageResult = this.brokerController.getMessageStore().putMessage(msgInner);

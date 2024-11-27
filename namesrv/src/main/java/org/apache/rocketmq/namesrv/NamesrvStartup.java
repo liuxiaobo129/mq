@@ -52,6 +52,7 @@ public class NamesrvStartup {
     private static ControllerConfig controllerConfig = null;
 
     public static void main(String[] args) {
+        System.out.println(System.getProperty("user.home"));
         main0(args);
         controllerManagerMain();
     }
@@ -94,6 +95,7 @@ public class NamesrvStartup {
         namesrvConfig = new NamesrvConfig();
         nettyServerConfig = new NettyServerConfig();
         nettyClientConfig = new NettyClientConfig();
+        nettyServerConfig.setBindAddress("127.0.0.1");
         nettyServerConfig.setListenPort(9876);
         if (commandLine.hasOption('c')) {
             String file = commandLine.getOptionValue('c');

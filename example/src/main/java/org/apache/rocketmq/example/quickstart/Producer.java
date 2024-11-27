@@ -24,13 +24,15 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
  * This class demonstrates how to send messages to brokers using provided {@link DefaultMQProducer}.
+ *
+ *  hexdump -C /Users/liuxiaobo/Downloads/data/rockmq/dataDir/consumequeue/TopicTest/0/00000000000000000000
  */
 public class Producer {
 
     /**
      * The number of produced messages.
      */
-    public static final int MESSAGE_COUNT = 1000;
+    public static final int MESSAGE_COUNT = 1;
     public static final String PRODUCER_GROUP = "please_rename_unique_group_name";
     public static final String DEFAULT_NAMESRVADDR = "127.0.0.1:9876";
     public static final String TOPIC = "TopicTest";
@@ -54,7 +56,7 @@ public class Producer {
          * </pre>
          */
         // Uncomment the following line while debugging, namesrvAddr should be set to your local address
-        // producer.setNamesrvAddr(DEFAULT_NAMESRVADDR);
+         producer.setNamesrvAddr(DEFAULT_NAMESRVADDR);
 
         /*
          * Launch the instance.
@@ -121,5 +123,8 @@ public class Producer {
          * Shut down once the producer instance is no longer in use.
          */
         producer.shutdown();
+
+//        DefaultRequestProcessor
+
     }
 }

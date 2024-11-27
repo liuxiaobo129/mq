@@ -883,7 +883,7 @@ public class BrokerController {
         }
 
         this.brokerMetricsManager = new BrokerMetricsManager(this);
-
+        // 完成初始化操作如：sendMessageProcessor
         if (result) {
 
             initializeRemotingServer();
