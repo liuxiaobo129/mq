@@ -1006,6 +1006,7 @@ public class CommitLog implements Swappable {
                 }
 
                 if (null == mappedFile || mappedFile.isFull()) {
+                    // 创建文件
                     mappedFile = this.mappedFileQueue.getLastMappedFile(0); // Mark: NewFile may be cause noise
                     if (isCloseReadAhead()) {
                         setFileReadMode(mappedFile, LibC.MADV_RANDOM);

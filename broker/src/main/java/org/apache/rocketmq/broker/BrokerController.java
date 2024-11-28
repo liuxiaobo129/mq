@@ -866,6 +866,7 @@ public class BrokerController {
 
         if (messageStore != null) {
             registerMessageStoreHook();
+            // 初始化文件初始值
             result = this.messageStore.load();
         }
 
@@ -1683,7 +1684,7 @@ public class BrokerController {
         if (this.fileWatchService != null) {
             this.fileWatchService.start();
         }
-
+        // 长轮询
         if (this.pullRequestHoldService != null) {
             this.pullRequestHoldService.start();
         }
@@ -1715,7 +1716,7 @@ public class BrokerController {
         if (this.brokerPreOnlineService != null) {
             this.brokerPreOnlineService.start();
         }
-
+        // 长轮询
         if (this.coldDataPullRequestHoldService != null) {
             this.coldDataPullRequestHoldService.start();
         }

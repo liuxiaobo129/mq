@@ -792,6 +792,7 @@ public class PullMessageProcessor implements NettyRequestProcessor {
                     response.setOpaque(request.getOpaque());
                     response.markResponseType();
                     try {
+                        // 写回数据
                         NettyRemotingAbstract.writeResponse(channel, request, response, future -> {
                             if (!future.isSuccess()) {
                                 LOGGER.error("processRequestWrapper response to {} failed", channel.remoteAddress(), future.cause());

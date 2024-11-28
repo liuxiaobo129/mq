@@ -48,6 +48,7 @@ public class RebalanceService extends ServiceThread {
             if (interval < minInterval) {
                 realWaitInterval = minInterval - interval;
             } else {
+                // 把请求放入队列messageRequestQueue
                 boolean balanced = this.mqClientFactory.doRebalance();
                 realWaitInterval = balanced ? waitInterval : minInterval;
                 lastRebalanceTimestamp = System.currentTimeMillis();
