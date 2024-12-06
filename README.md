@@ -1,3 +1,6 @@
+## 注释部分分析的关键代码； 可以看提交记录
+
+
 ## Apache RocketMQ
 
 [![Build Status][maven-build-image]][maven-build-url]
